@@ -91,3 +91,39 @@ Route::group(['prefix'=>'offers'],function(){
       Route::get('create','CrudController@create');
       Route::post('store','CrudController@store')-> name('offers.store');
 });
+
+
+
+Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
+
+    //routes for departments
+    Route::get('/departments/create', 'DepartmentsController@create')->name('department.create'); //->middleware('verified')
+    Route::post('/departments/store', 'DepartmentsController@store')->name('department.store'); //->middleware('verified')
+    Route::get('/departments', 'DepartmentsController@index')->name('departments'); //->middleware('verified')
+    Route::get('/departments/edit/{id}', 'DepartmentsController@edit')->name('department.edit'); //->middleware('verified')
+    Route::get('/departments/delete/{id}', 'DepartmentsController@destroy')->name('department.delete'); //->middleware('verified')
+    Route::post('/departments/update/{id}', 'DepartmentsController@update')->name('department.update'); //->middleware('verified')
+
+    //routs for cities
+    Route::get('/cities/create', 'CitiesController@create')->name('city.create'); //->middleware('verified')
+    Route::post('/cities/store', 'CitiesController@store')->name('city.store'); //->middleware('verified')
+    Route::get('/cities', 'CitiesController@index')->name('cities'); //->middleware('verified')
+    Route::get('/cities/edit/{id}', 'CitiesController@edit')->name('city.edit'); //->middleware('verified')
+    Route::get('/cities/delete/{id}', 'CitiesController@destroy')->name('city.delete'); //->middleware('verified')
+    Route::post('/cities/update/{id}', 'CitiesController@update')->name('city.update'); //->middleware('verified')
+
+    //routs for banks
+    Route::get('/banks/create', 'BanksController@create')->name('bank.create'); //->middleware('verified')
+    Route::post('/banks/store', 'BanksController@store')->name('bank.store'); //->middleware('verified')
+    Route::get('/banks', 'BanksController@index')->name('banks'); //->middleware('verified')
+    Route::get('/banks/edit/{id}', 'BanksController@edit')->name('bank.edit'); //->middleware('verified')
+    Route::get('/banks/delete/{id}', 'BanksController@destroy')->name('bank.delete'); //->middleware('verified')
+    Route::post('/banks/update/{id}', 'BanksController@update')->name('bank.update'); //->middleware('verified')
+
+    Route::get('/dashboard','HomeController@dashboard')->name('dashboard');
+
+    //routes for employees
+    Route::get('/employees/create', 'EmployeesController@create')->name('employee.create'); //->middleware('verified')
+    Route::post('/employees/store', 'EmployeesController@store')->name('employee.store'); //->middleware('verified')
+
+});

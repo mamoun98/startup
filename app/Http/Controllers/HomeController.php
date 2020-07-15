@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use\App\Department;
+use\App\Bank;
+use\App\city;
+
+
 class HomeController extends Controller
 {
     /**
@@ -24,5 +29,14 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function dashboard()
+    {
+        return view('dashboard')
+         ->with('departments_count', Department::all()->count())
+         ->with('cities_count', City::all()->count())
+         ->with('banks_count', Bank::all()->count());
+
     }
 }
