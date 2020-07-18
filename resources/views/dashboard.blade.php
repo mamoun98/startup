@@ -55,7 +55,7 @@
                             <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                                 <div style="font-size:18px;"class="card-header">Employees</div>
                                 <div class="card-body">
-                                  <h5 class="card-title">Dark card title</h5>
+                                  <h5 class="card-title">{{$employees_count}}</h5>
                                 </div>
                               </div>
 

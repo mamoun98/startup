@@ -25,7 +25,8 @@ class EmployeesController extends Controller
      */
     public function index()
     {
-        return view('employees.index')->with('employees',employee::all());
+        return view('employees.index')->with('employees',employee::all())
+        ->with('departments',Department::all());
     }
 
     /**
@@ -82,13 +83,13 @@ class EmployeesController extends Controller
         ]);
 
         $file_extension = $request->photo ->getClientOriginalName();
-        $file_name =time().$file_extension;
+        $file_name =time().'.'.$file_extension;
         $path = 'uploads/photos';
         $request ->photo ->move($path,$file_name);
 
         $file_extensionn = $request->Certificate ->getClientOriginalName();
-        $file_namee =time().$file_extensionn;
-        $pathh = 'uploads/photos';
+        $file_namee =time().'.'.$file_extensionn;
+        $pathh = 'uploads/Certificate';
         $request ->Certificate ->move($pathh,$file_namee);
        
 
@@ -142,7 +143,17 @@ class EmployeesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $employee = employee::find($id);
+        return view('employees.edit')->with('employees',$employee)
+        ->with('departments',Department::all())
+        ->with('banks',Bank::all())
+        ->with('branches',Branch::all())
+        ->with('cities',City::all())
+        ->with('jop_types',Jop_type::all())
+        ->with('pers',Per::all())
+        ->with('socials',Social::all())
+        ->with('currenies',Curreny::all())
+        ->with('statuses',Status::all());
     }
 
     /**
@@ -154,7 +165,7 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+           //
     }
 
     /**

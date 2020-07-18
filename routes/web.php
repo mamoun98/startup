@@ -128,6 +128,6 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::get('/employees', 'EmployeesController@index')->name('employees'); //->middleware('verified')
     Route::get('/employees/edit/{id}', 'EmployeesController@edit')->name('employee.edit'); //->middleware('verified')
     Route::get('/employees/delete/{id}', 'EmployeesController@destroy')->name('employee.delete'); //->middleware('verified')
- 
+    Route::post('/employees/update/{id}', 'EmployeesController@update')->name('employee.update'); //->middleware('verified')
 
 });

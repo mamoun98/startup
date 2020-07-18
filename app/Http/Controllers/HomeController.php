@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use\App\Department;
 use\App\Bank;
 use\App\city;
+use\App\Employee;
 
 
 class HomeController extends Controller
@@ -36,7 +37,8 @@ class HomeController extends Controller
         return view('dashboard')
          ->with('departments_count', Department::all()->count())
          ->with('cities_count', City::all()->count())
-         ->with('banks_count', Bank::all()->count());
+         ->with('banks_count', Bank::all()->count())
+         ->with('employees_count', Employee::all()->count());
 
     }
 }
