@@ -76,14 +76,15 @@
                               <div class="form-group col-md-6">
                                 <label for="social_id">Social status</label>
                                 <select name="social_id" class="form-control">
-                                  <option>Single</option>
-                                  <option>Married</option>
+                                  @foreach ($socials as $social)
+                                  <option value="{{$social->id}}">{{$social->name}}</option>
+                                  @endforeach 
                                 </select>
                               </div>
 
                               <div class="form-group col-md-6">
-                                <label for="family_number">Family Members</label>
-                                <input type="text" class="form-control" name="family_number" placeholder="Family Members">
+                                <label for="family">Family Members</label>
+                                <input type="text" class="form-control" name="family" placeholder="Family Members">
                               </div>
                         </div>
 
@@ -110,19 +111,17 @@
                             <div class="form-group col-md-6">
                               <label for="department_id">Department</label>
                               <select name="department_id" class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
+                                @foreach ($departments as $department)
+                                <option value="{{$department->id}}">{{$department->name}}</option>
+                                @endforeach  
                               </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="job_type_id">Jop time</label>
+                                <label for="job_type_id">Job Time</label>
                                 <select name="job_type_id" class="form-control">
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
+                                  @foreach ($jop_types as $jop_type)
+                                  <option value="{{$jop_type->id}}">{{$jop_type->name}}</option>
+                                  @endforeach 
                                 </select>
                               </div>
                             </div>
@@ -136,19 +135,17 @@
                             <div class="form-group col-md-4">
                               <label for="curreny_id">Currency</label>
                               <select name="curreny_id" class="form-control">
-                                <option selected>ILS</option>
-                                <option>USD</option>
-                                <option>JOD</option>
+                                @foreach ($currenies as $curreny)
+                                <option value="{{$curreny->id}}">{{$curreny->name}}</option>
+                                @endforeach 
                               </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="per_id">Per</label>
                                 <select name="per_id" class="form-control">
-                                  <option selected>Hour</option>
-                                  <option>Day</option>
-                                  <option>Week</option>
-                                  <option>Month</option>
-                                  <option>Year</option>
+                                  @foreach ($pers as $per)
+                                <option value="{{$per->id}}">{{$per->name}}</option>
+                                @endforeach 
                                 </select>
                               </div>
 
@@ -161,8 +158,9 @@
                           <div class="form-group">
                             <label for="status_id">Status</label>
                             <select class="form-control" name="status_id">
-                              <option>Active</option>
-                              <option>Not Active</option>
+                              @foreach ($statuses as $status)
+                              <option value="{{$status->id}}">{{$status->name}}</option>
+                              @endforeach 
                             </select>
                           </div>
 
@@ -177,19 +175,17 @@
                             <div class="form-group col-md-6">
                               <label for="bank_id">Bank Name</label>
                               <select name="bank_id" class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
+                                @foreach ($banks as $bank)
+                                <option value="{{$bank->id}}">{{$bank->name}}</option>
+                                @endforeach 
                               </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="branch_id">Branch</label>
                                 <select name="branch_id" class="form-control">
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
+                                  @foreach ($branches as $branche)
+                                  <option value="{{$branche->id}}">{{$branche->name}}</option>
+                                  @endforeach 
                                 </select>
                               </div>
 

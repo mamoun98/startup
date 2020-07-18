@@ -6,6 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
+
+    protected $fillable = [
+      'photo', 'name', 'email','mobile','city_id', 'address', 'birthday','social_id',
+      'family', 'Certificate', 'join_date','department_id','job_type_id', 'salary', 'curreny_id','per_id',
+      'status_id', 'bank_id', 'branch_id','bank_account','iban'
+
+    ];
+
     public function bank()
     {
         return $this->belongsTo('App\Bank');

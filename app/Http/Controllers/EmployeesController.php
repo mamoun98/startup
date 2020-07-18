@@ -25,7 +25,7 @@ class EmployeesController extends Controller
      */
     public function index()
     {
-        //
+        return view('employees.index')->with('employees',employee::all());
     }
 
     /**
@@ -81,6 +81,45 @@ class EmployeesController extends Controller
             "iban" => "required"
         ]);
 
+        $file_extension = $request->photo ->getClientOriginalName();
+        $file_name =time().$file_extension;
+        $path = 'uploads/photos';
+        $request ->photo ->move($path,$file_name);
+
+        $file_extensionn = $request->Certificate ->getClientOriginalName();
+        $file_namee =time().$file_extensionn;
+        $pathh = 'uploads/photos';
+        $request ->Certificate ->move($pathh,$file_namee);
+       
+
+        Employee::create([
+        
+            "photo" => $file_name,
+            "name" => $request->name,
+            "email" => $request->email,
+            "mobile" => $request->mobile,
+            "city_id" => $request->city_id,
+            "address" => $request->address,
+            "birthday" => $request->birthday,
+            "social_id" => $request->social_id,
+            "family" => $request->family,
+            "Certificate" => $file_namee,
+            "join_date" => $request->join_date,
+            "department_id" => $request->department_id,
+            "job_type_id" => $request->job_type_id,
+            "salary" => $request->salary,
+            "curreny_id" => $request->curreny_id,
+            "per_id" => $request->per_id,
+            "status_id" => $request->status_id,
+            "bank_id" => $request->bank_id,
+            "branch_id" => $request->branch_id,
+            "bank_account" => $request->bank_account,
+            "iban" => $request->iban
+
+        ]);
+        
+
+        return redirect()->back();
 
     }
 
