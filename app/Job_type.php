@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Jop_type extends Model
+class Job_type extends Model
 {
     public function employees()
     {

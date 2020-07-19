@@ -25,6 +25,7 @@
                         
                             <div class="form-group">
                               <label for="photo">Photo</label>
+                              <img src="..." alt="..." class="img-thumbnail">
                               <input type="file" class="form-control-file" name="photo">
                             </div>
                     
@@ -47,6 +48,21 @@
                         </div>
 
 
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="gender_id">Gender</label>
+                            <select name="gender_id" class="form-control">
+                              @foreach ($genders as $gender)
+                              <option value="{{$gender->id}}">{{$gender->name}}</option>
+                              @endforeach 
+                            </select>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="id_number">ID Number</label>
+                            <input type="text" class="form-control" name="id_number" placeholder="ID Number">
+                          </div>
+
+                      </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-4">
@@ -119,8 +135,8 @@
                             <div class="form-group col-md-6">
                                 <label for="job_type_id">Job Time</label>
                                 <select name="job_type_id" class="form-control">
-                                  @foreach ($jop_types as $jop_type)
-                                  <option value="{{$jop_type->id}}">{{$jop_type->name}}</option>
+                                  @foreach ($job_types as $job_type)
+                                  <option value="{{$job_type->id}}">{{$job_type->name}}</option>
                                   @endforeach 
                                 </select>
                               </div>
@@ -183,8 +199,8 @@
                             <div class="form-group col-md-6">
                                 <label for="branch_id">Branch</label>
                                 <select name="branch_id" class="form-control">
-                                  @foreach ($branches as $branche)
-                                  <option value="{{$branche->id}}">{{$branche->name}}</option>
+                                  @foreach ($branches as $branch)
+                                  <option value="{{$branch->id}}">{{$branch->name}}</option>
                                   @endforeach 
                                 </select>
                               </div>

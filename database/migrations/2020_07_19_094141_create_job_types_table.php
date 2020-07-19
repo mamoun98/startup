@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJopTypesTable extends Migration
+class CreateJobTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateJopTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('jop_types', function (Blueprint $table) {
+        Schema::create('job_types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateJopTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jop_types');
+        Schema::dropIfExists('job_types');
     }
 }

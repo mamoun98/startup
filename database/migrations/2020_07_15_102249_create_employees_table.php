@@ -19,6 +19,8 @@ class CreateEmployeesTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('mobile');
+            $table->string('id_number');
+            $table->string('gender_id');
             $table->string('city_id');
             $table->string('address');
             $table->string('birthday');
@@ -27,7 +29,7 @@ class CreateEmployeesTable extends Migration
             $table->string('Certificate');
             $table->string('join_date');
             $table->string('department_id');
-            $table->string('job_type_id');
+            $table->string('jop_type_id');
             $table->string('salary');
             $table->string('curreny_id');
             $table->string('per_id');

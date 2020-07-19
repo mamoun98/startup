@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\Department;
 use App\Bank;
 use App\Branch;
+use App\Gender;
 use App\City;
-use App\Jop_type;
+use App\Job_type;
 use App\Per;
 use App\Social;
 use App\Curreny;
@@ -40,8 +41,9 @@ class EmployeesController extends Controller
         ->with('departments',Department::all())
         ->with('banks',Bank::all())
         ->with('branches',Branch::all())
+        ->with('genders',Gender::all())
         ->with('cities',City::all())
-        ->with('jop_types',Jop_type::all())
+        ->with('job_types',Job_type::all())
         ->with('pers',Per::all())
         ->with('socials',Social::all())
         ->with('currenies',Curreny::all())
@@ -63,6 +65,8 @@ class EmployeesController extends Controller
             "name" => "required",
             "email" => "required",
             "mobile" => "required",
+            "id_number"=> "required",
+            "gender_id"=> "required",
             "city_id" => "required",
             "address" => "required",
             "birthday" => "required",
@@ -95,16 +99,18 @@ class EmployeesController extends Controller
 
         Employee::create([
         
-            "photo" => $file_name,
+            "photo" => 'uploads/photos/'.$file_name,
             "name" => $request->name,
             "email" => $request->email,
             "mobile" => $request->mobile,
+            "id_number"=> $request->id_number,
+            "gender_id"=> $request->gender_id,
             "city_id" => $request->city_id,
             "address" => $request->address,
             "birthday" => $request->birthday,
             "social_id" => $request->social_id,
             "family" => $request->family,
-            "Certificate" => $file_namee,
+            "Certificate" => 'uploads/Certificate/'.$file_namee,
             "join_date" => $request->join_date,
             "department_id" => $request->department_id,
             "job_type_id" => $request->job_type_id,
@@ -120,7 +126,7 @@ class EmployeesController extends Controller
         ]);
         
 
-        return redirect()->back();
+        return redirect()->route('employees');
 
     }
 
@@ -148,8 +154,9 @@ class EmployeesController extends Controller
         ->with('departments',Department::all())
         ->with('banks',Bank::all())
         ->with('branches',Branch::all())
+        ->with('genders',Gender::all())
         ->with('cities',City::all())
-        ->with('jop_types',Jop_type::all())
+        ->with('job_types',Job_type::all())
         ->with('pers',Per::all())
         ->with('socials',Social::all())
         ->with('currenies',Curreny::all())
@@ -165,7 +172,89 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, $id)
     {
-           //
+
+        $employee = Employee::find($id);
+
+        $this->validate($request,[
+           // "photo" => "required|image",
+            "name" => "required",
+            "email" => "required",
+            "mobile" => "required",
+            "id_number"=> "required",
+            "gender_id"=> "required",
+            "city_id" => "required",
+            "address" => "required",
+            "birthday" => "required",
+            "social_id" => "required",
+            "family" => "required",
+          //  "Certificate" => "required|image",
+            "join_date" => "required",
+            "department_id" => "required",
+            "job_type_id" => "required",
+            "salary" => "required",
+            "curreny_id" => "required",
+            "per_id" => "required",
+            "status_id" => "required",
+            "bank_id" => "required",
+            "branch_id" => "required",
+            "bank_account" => "required",
+            "iban" => "required"
+        ]);
+
+
+
+              /*  if($request->hasFile('photo')) {
+                $file_extension = $request->photo ->getClientOriginalName();
+                $file_name =time().'.'.$file_extension;
+                $path = 'uploads/photos';
+                $request ->photo ->move($path,$file_name);
+            }
+
+                $employee->photo =$file_name;
+
+
+
+            if($request->hasFile('Certificate')) {
+                $file_extensionn = $request->Certificate ->getClientOriginalName();
+                $file_namee =time().'.'.$file_extensionn;
+                $pathh = 'uploads/Certificate';
+                $request ->Certificate ->move($pathh,$file_namee);
+
+
+                $employee->Certificate =$file_namee;
+            }
+            */
+            
+
+
+            //$employee->photo = $file_name,
+            $employee->name = $request->name;
+            $employee->email= $request->email;
+            $employee->mobile = $request->mobile;
+            $employee->id_number= $request->id_number;
+            $employee->gender_id= $request->gender_id;
+            $employee->city_id = $request->city_id;
+            $employee->address = $request->address;
+            $employee->birthday = $request->birthday;
+            $employee->social_id = $request->social_id;
+            $employee->family = $request->family;
+            //$employee->Certificate = $file_namee,
+            $employee->join_date = $request->join_date;
+            $employee->department_id = $request->department_id;
+            $employee->job_type_id = $request->job_type_id;
+            $employee->salary = $request->salary;
+            $employee->curreny_id = $request->curreny_id;
+            $employee->per_id = $request->per_id;
+            $employee->status_id = $request->status_id;
+            $employee->bank_id = $request->bank_id;
+            $employee->branch_id = $request->branch_id;
+            $employee->bank_account = $request->bank_account;
+            $employee->iban = $request->iban;
+            $employee->save();
+            return redirect()->route('employees');
+    
+            
+
     }
 
     /**
@@ -176,6 +265,8 @@ class EmployeesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee = employee::find($id);
+        $employee->delete();
+        return redirect()->route('employees');
     }
 }
