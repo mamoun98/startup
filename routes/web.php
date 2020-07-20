@@ -129,5 +129,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::get('/employees/edit/{id}', 'EmployeesController@edit')->name('employee.edit'); //->middleware('verified')
     Route::get('/employees/delete/{id}', 'EmployeesController@destroy')->name('employee.delete'); //->middleware('verified')
     Route::post('/employees/update/{id}', 'EmployeesController@update')->name('employee.update'); //->middleware('verified')
+    Route::get('/employees/show/{id}', 'EmployeesController@show')->name('employee.show'); //->middleware('verified')
+    Route::get('/employees/print/{id}', 'EmployeesController@print')->name('employee.print'); //->middleware('verified')
+
 
 });

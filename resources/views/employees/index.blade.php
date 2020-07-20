@@ -32,7 +32,7 @@
                               <th scope="row">{{$employee->Department->name}}</th>
                               <th scope="row">{{$employee->status->name}}</th>
                               <td>
-                                <a class="" href="{{route('employee.delete',['id'=>$employee->id])}}">
+                                <a class="" href="{{route('employee.show',['id'=>$employee->id])}}">
                                   <button type="button" class="btn btn-success btn-sm">Show</button>
                                 </a>
                                 <a class="" href="{{route('employee.edit',['id'=>$employee->id])}}">

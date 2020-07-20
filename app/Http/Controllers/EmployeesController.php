@@ -138,7 +138,18 @@ class EmployeesController extends Controller
      */
     public function show($id)
     {
-        //
+        $employee = employee::find($id);
+        return view('employees.show')->with('employees',$employee)
+        ->with('departments',Department::all())
+        ->with('banks',Bank::all())
+        ->with('branches',Branch::all())
+        ->with('genders',Gender::all())
+        ->with('cities',City::all())
+        ->with('job_types',Job_type::all())
+        ->with('pers',Per::all())
+        ->with('socials',Social::all())
+        ->with('currenies',Curreny::all())
+        ->with('statuses',Status::all());
     }
 
     /**
@@ -269,4 +280,21 @@ class EmployeesController extends Controller
         $employee->delete();
         return redirect()->route('employees');
     }
+
+    public function print($id)
+    {
+        $employee = employee::find($id);
+        return view('employees.print')->with('employees',$employee)
+        ->with('departments',Department::all())
+        ->with('banks',Bank::all())
+        ->with('branches',Branch::all())
+        ->with('genders',Gender::all())
+        ->with('cities',City::all())
+        ->with('job_types',Job_type::all())
+        ->with('pers',Per::all())
+        ->with('socials',Social::all())
+        ->with('currenies',Curreny::all())
+        ->with('statuses',Status::all());
+    }
+
 }
