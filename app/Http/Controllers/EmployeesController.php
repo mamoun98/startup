@@ -33,6 +33,18 @@ class EmployeesController extends Controller
         return view('employees.index')->with('employees',employee::all())
         ->with('employees',employee::paginate(5))
         ->with('departments',Department::all());
+    }
+
+    public function search(Request $request){
+  
+      $search = $request->get('search');
+
+      $employees = Employee::oldest()
+             ->where('name', 'like', "%$search%")
+             ->paginate(5);
+
+      return view('employees.index',['employees'=> $employees]);
+
 
     }
 

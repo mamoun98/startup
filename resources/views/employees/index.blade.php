@@ -6,8 +6,27 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex">
-                  <h4>Manage Employees</h4>
-            <a href="{{route('employee.create')}}" class="btn btn-primary ml-auto"><i class="fa fa-plus"></i>Add Employee</a>
+                   <div class="col mid-4">
+                    <h4>Manage Employees</h4>
+                   </div>
+                 
+                   <div class="col mid-4">
+                    <form action="/search" method="POST">
+                      @csrf
+                      <div class="input-group">
+                       <input type="search" name="search" class="form-control">
+                       <span class="input-group-prepend">
+                         <button type="submit" class="btn btn-primary">Search</button>
+                       </span>
+                      </div>
+                    </form>
+                   </div>
+                   <div class="col mid-4 d-flex">
+                    <a href="{{route('employee.create')}}" class="btn btn-primary ml-auto"><i class="fa fa-plus"></i>Add Employee</a>
+                   </div>
+                  
+
+
           </div>
                 
           
@@ -32,7 +51,15 @@
                               <th scope="row">{{$employee->email}}</th>
                               <th scope="row">{{$employee->mobile}}</th>
                               <th scope="row">{{$employee->Department->name}}</th>
-                              <th scope="row">{{$employee->status->name}}</th>
+                              <th scope="row"
+                         
+                              @if ($employee->status->name === "Active")
+                                    style="color : green;"
+                                 @else
+                                 style="color : red;"
+                                @endif
+                              
+                              >{{$employee->status->name}}</th>
                               <td>
                                 <a class="" href="{{route('employee.show',['id'=>$employee->id])}}">
                                   <button type="button" class="btn btn-success btn-sm">Show</button>
@@ -55,4 +82,7 @@
         </div>
     </div>
 </div>
+
+
+
 @endsection

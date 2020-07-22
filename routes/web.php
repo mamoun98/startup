@@ -131,6 +131,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::post('/employees/update/{id}', 'EmployeesController@update')->name('employee.update'); //->middleware('verified')
     Route::get('/employees/show/{id}', 'EmployeesController@show')->name('employee.show'); //->middleware('verified')
     Route::get('/employees/print/{id}', 'EmployeesController@print')->name('employee.print'); //->middleware('verified')
+    Route::post('/employees/search', 'EmployeesController@search')->name('employee.search'); //->middleware('verified')
+
 
 
 });
