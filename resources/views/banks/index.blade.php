@@ -5,9 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Manage Banks</div>
 
-                <div class="card-body">
+                <div class="card-header d-flex">
+                  <h4>Manage Banks</h4>
+            <a href="{{route('bank.create')}}" class="btn btn-primary ml-auto"><i class="fa fa-plus"></i>Add Bank</a>
+          </div>
+
+                
 
                     
 
@@ -38,7 +42,7 @@
                         </tbody>
                       </table>
                    
-                </div>
+              
             </div>
         </div>
     </div>

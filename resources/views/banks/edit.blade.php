@@ -18,6 +18,7 @@
                           <input type="text" class="form-control" name="name" value="{{$bank->name}}">
                         </div>
                         <button type="submit" class="btn btn-primary">Update</button>
+                        <a type="button" class="btn btn-secondary"href="{{route('banks')}}">Cancel</a>
                       </form>
 
                    

@@ -5,9 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Manage Departments</div>
+                <div class="card-header d-flex">
+                  <h4>Manage Departments</h4> 
+                <a href="{{route('department.create')}}" class="btn btn-primary ml-auto"><i class="fa fa-plus"></i>Add Department</a>
 
-                <div class="card-body">
+              </div>
+                
 
                     
 
@@ -37,7 +40,7 @@
                         </tbody>
                       </table>
                    
-                </div>
+                
             </div>
         </div>
     </div>

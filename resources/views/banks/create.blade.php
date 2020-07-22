@@ -12,7 +12,7 @@
                     @if(count($errors)>0)  
                     <ul class="navbar-nav mr-auto">
                     @foreach ($errors->all() as $error)
-                    <li class="nav-item active">
+                    <li class="form-text text-danger">
                         {{$error}}
                       </li>
                     @endforeach
@@ -26,6 +26,7 @@
                           <input type="text" class="form-control" name="name" placeholder="Enter New Bank">
                         </div>
                         <button type="submit" class="btn btn-primary">Create</button>
+                        <a type="button" class="btn btn-secondary"href="{{route('banks')}}">Cancel</a>
                       </form>
 
                    

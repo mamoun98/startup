@@ -26,8 +26,14 @@ class EmployeesController extends Controller
      */
     public function index()
     {
+
+        
+
+
         return view('employees.index')->with('employees',employee::all())
+        ->with('employees',employee::paginate(5))
         ->with('departments',Department::all());
+
     }
 
     /**
@@ -85,6 +91,8 @@ class EmployeesController extends Controller
             "bank_account" => "required",
             "iban" => "required"
         ]);
+
+        
 
         $file_extension = $request->photo ->getClientOriginalName();
         $file_name =time().'.'.$file_extension;

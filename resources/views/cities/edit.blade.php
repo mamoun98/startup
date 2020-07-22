@@ -18,6 +18,8 @@
                           <input type="text" class="form-control" name="name" value="{{$city->name}}">
                         </div>
                         <button type="submit" class="btn btn-primary">Update</button>
+                        <a type="button" class="btn btn-secondary"href="{{route('cities')}}">Cancel</a>
+
                       </form>
 
                    

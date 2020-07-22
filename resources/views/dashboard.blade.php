@@ -20,13 +20,13 @@
                           <div class="col-sm">
                             
                             <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                                <div style="font-size:18px;"class="card-header">Departments</div>
+                                <div style="font-size:18px;"class="card-header"><a style="color: white;" href="{{route('departments')}}">Departments</a></div>
                                 <div class="card-body">
                                   <h5 class="card-title">{{$departments_count}}</h5>
                                 </div>
                               </div>
                               <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                                <div style="font-size:18px;"class="card-header">Cities</div>
+                                <div style="font-size:18px;"class="card-header"><a style="color: white;" href="{{route('cities')}}">Cities</a></div>
                                 <div class="card-body">
                                   <h5 class="card-title">{{$cities_count}}</h5>
                                 </div>
@@ -36,7 +36,7 @@
                           <div class="col-sm">
                             
                             <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                                <div style="font-size:18px;"class="card-header">Banks</div>
+                                <div style="font-size:18px;"class="card-header"><a style="color: white;" href="{{route('banks')}}">Banks</a></div>
                                 <div class="card-body">
                                   <h5 class="card-title">{{$banks_count}}</h5>
                                 </div>
@@ -53,7 +53,7 @@
                           <div class="col-sm">
 
                             <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                                <div style="font-size:18px;"class="card-header">Employees</div>
+                            <div style="font-size:18px;"class="card-header" > <a style="color: white;" href="{{route('employees')}}">Employees</a></div>
                                 <div class="card-body">
                                   <h5 class="card-title">{{$employees_count}}</h5>
                                 </div>

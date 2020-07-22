@@ -5,13 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Manage Employeess</div>
+                <div class="card-header d-flex">
+                  <h4>Manage Employees</h4>
+            <a href="{{route('employee.create')}}" class="btn btn-primary ml-auto"><i class="fa fa-plus"></i>Add Employee</a>
+          </div>
+                
+          
+          
 
-                <div class="card-body">
-
-                    
-
-                    <table class="table table-striped">
+                    <table class="table table-striped" >
                         <thead>
                           <tr>
                             <th scope="col">Name</th>
@@ -47,8 +49,8 @@
 
                         </tbody>
                       </table>
-                   
-                </div>
+                   {{$employees->links()}}
+                
             </div>
         </div>
     </div>

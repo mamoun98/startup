@@ -260,14 +260,12 @@
 
 <br>
 
-                        <div class="form-row">
-                          <div class="form-group col-md-2">
+                        <div class="form-group">
                             <button type="submit" class="btn btn-primary">Update</button>
-                                 </div>
-                          <div class="form-group col-md-6">
                             <a type="button" class="btn btn-secondary"href="{{route('employees')}}">Cancel</a>
 
                                  </div>
+                         
                       </div>
                       </form>
 
