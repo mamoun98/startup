@@ -24,7 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a style="font-size:20px;" class="navbar-brand" href="{{ url('/') }}">
+                <a style="font-size:20px;" class="navbar-brand" href="{{route('dashboard')}}">
                     CallU HR Managment System
                 </a>
 

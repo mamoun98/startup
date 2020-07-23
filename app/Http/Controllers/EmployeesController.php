@@ -36,8 +36,38 @@ class EmployeesController extends Controller
     }
 
     public function search(Request $request){
+        
+
+        $request->validate([
+             "q"=> "required"
+        ]);
+        
+        $q = $request->q;
+        $filterdEmployees = Employee::where('name', 'like', '%' . $q . '%')
+                                      ->orwhere('email', 'like', '%' . $q . '%')->paginate(10);
+       
+                                      
+
+        
+                                                                   
+                                      
+
+                                     /* dd($filterdEmployees); */
+
+       if($filterdEmployees -> count()){
+          return view('employees.index')->with([
+                 'employees'=> $filterdEmployees
+          ]);
+       }  else{
+        return redirect()->route('employees')->with([
+
+            'status' => 'No Results'
+        ]);
+
+
+       }                           
   
-      $search = $request->get('search');
+     /* $search = $request->get('search');
 
       $employees = Employee::oldest()
              ->where('name', 'like', "%$search%")
@@ -45,7 +75,7 @@ class EmployeesController extends Controller
 
       return view('employees.index',['employees'=> $employees]);
 
-
+*/
     }
 
     /**

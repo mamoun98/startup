@@ -7,14 +7,14 @@
             <div class="card">
                 <div class="card-header d-flex">
                    <div class="col mid-4">
-                    <h4>Manage Employees</h4>
+                   <a href="{{route('employees')}}" style="font-size: 20px; color:black;">Manage Employees</a> 
                    </div>
                  
                    <div class="col mid-4">
-                    <form action="/search" method="POST">
+                    <form action="{{route('employee.search')}}" method="POST">
                       @csrf
                       <div class="input-group">
-                       <input type="search" name="search" class="form-control">
+                       <input type="text" name="q" id="q" class="form-control" placeholder="Search Here">
                        <span class="input-group-prepend">
                          <button type="submit" class="btn btn-primary">Search</button>
                        </span>
@@ -31,7 +31,7 @@
                 
           
           
-
+  
                     <table class="table table-striped" >
                         <thead>
                           <tr>
@@ -44,6 +44,12 @@
                           </tr>
                         </thead>
                         <tbody>
+
+                          @if (session('status'))
+                          <div class="alert alert-danger">
+                            {{session('status')}}
+                          </div>
+                          @endif
 
                           @foreach($employees as $employee)
                           <tr>
