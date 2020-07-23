@@ -45,7 +45,10 @@ class DepartmentsController extends Controller
             $department->name = $request->name;
             $department->save();
 
-            return redirect()->back();
+            return redirect()->back()->with([
+
+                'Success' => 'Department Added'
+            ]);
     }
 
     /**
@@ -69,6 +72,8 @@ class DepartmentsController extends Controller
     {
         $department = department::find($id);
         return view('departments.edit')->with('department',$department);
+
+    
     }
 
     /**
@@ -83,7 +88,13 @@ class DepartmentsController extends Controller
         $department = department::find($id);
         $department->name = $request->name;
         $department->save();
-        return redirect()->route('departments');
+        
+
+
+        return redirect()->back()->with([
+
+            'success' => 'Department Updated'
+        ]);
 
     }
 
@@ -97,6 +108,11 @@ class DepartmentsController extends Controller
     {
         $department = department::find($id);
         $department->delete();
-        return redirect()->route('departments');
+        
+
+        return redirect()->back()->with([
+
+            'success' => 'Department Deleted'
+        ]);
     }
 }

@@ -9,7 +9,11 @@
 
                 <div class="card-body">
                     
-
+                    @if (session('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{session('success')}}
+                      </div>
+                    @endif
                     
                     <form action="{{route('department.update', ['id'=>$department->id])}}" method="POST">
                         {{csrf_field()}}

@@ -45,7 +45,10 @@ class BanksController extends Controller
                     $bank->name = $request->name;
                     $bank->save();
         
-                    return redirect()->back();
+                    return redirect()->back()->with([
+
+                        'success' => 'Bank Added'
+                    ]);
     }
 
     /**
@@ -83,7 +86,10 @@ class BanksController extends Controller
         $bank = bank::find($id);
         $bank->name = $request->name;
         $bank->save();
-        return redirect()->route('banks');
+        return redirect()->back()->with([
+
+            'success' => 'Bank Updated'
+        ]);
     }
 
     /**
@@ -96,6 +102,10 @@ class BanksController extends Controller
     {
         $bank = bank::find($id);
         $bank->delete();
-        return redirect()->route('banks');
+
+        return redirect()->back()->with([
+
+            'success' => 'Bank Deleted'
+        ]);
     }
 }

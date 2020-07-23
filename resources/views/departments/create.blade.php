@@ -18,6 +18,13 @@
                     @endforeach
                    </ul>
                     @endif
+
+                    @if (session('Success'))
+                    <div class="alert alert-success" role="alert">
+                        {{session('Success')}}
+                      </div>
+                    @endif
+                  
                     
                     <form action="{{route('department.store')}}" method="POST">
                         {{csrf_field()}}

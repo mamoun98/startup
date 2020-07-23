@@ -11,7 +11,11 @@
                 
                 <div class="card-body">
 
-
+                  @if (session('success'))
+                  <div class="alert alert-success" role="alert">
+                      {{session('success')}}
+                    </div>
+                  @endif
                     
                     <form action="{{route('employee.update', ['id'=>$employees->id])}}" method="POST" enctype="multipart/form-data">
                         {{csrf_field()}}

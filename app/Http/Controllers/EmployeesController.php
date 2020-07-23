@@ -44,7 +44,8 @@ class EmployeesController extends Controller
         
         $q = $request->q;
         $filterdEmployees = Employee::where('name', 'like', '%' . $q . '%')
-                                      ->orwhere('email', 'like', '%' . $q . '%')->paginate(10);
+                                      ->orwhere('email', 'like', '%' . $q . '%')
+                                      ->orwhere('status_id', 'like', '%' . $q . '%')->paginate(10);
        
                                       
 
@@ -176,7 +177,10 @@ class EmployeesController extends Controller
         ]);
         
 
-        return redirect()->route('employees');
+        return redirect()->back()->with([
+
+            'success' => 'Employee Added'
+        ]);
 
     }
 
@@ -312,7 +316,12 @@ class EmployeesController extends Controller
             $employee->bank_account = $request->bank_account;
             $employee->iban = $request->iban;
             $employee->save();
-            return redirect()->route('employees');
+            
+
+            return redirect()->back()->with([
+
+                'success' => 'Employee Updated'
+            ]);
     
             
 
@@ -328,7 +337,10 @@ class EmployeesController extends Controller
     {
         $employee = employee::find($id);
         $employee->delete();
-        return redirect()->route('employees');
+        return redirect()->back()->with([
+
+            'success' => 'Employee Deleted'
+        ]);
     }
 
     public function print($id)

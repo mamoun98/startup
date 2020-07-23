@@ -45,7 +45,10 @@ class CitiesController extends Controller
             $city->name = $request->name;
             $city->save();
 
-            return redirect()->back();
+            return redirect()->back()->with([
+
+                'success' => 'City Added'
+            ]);
 
     }
 
@@ -84,7 +87,10 @@ class CitiesController extends Controller
         $city = city::find($id);
         $city->name = $request->name;
         $city->save();
-        return redirect()->route('cities');
+        return redirect()->back()->with([
+
+            'success' => 'City Updated'
+        ]);
     }
 
     /**
@@ -97,6 +103,9 @@ class CitiesController extends Controller
     {
         $city = city::find($id);
         $city->delete();
-        return redirect()->route('cities');
+        return redirect()->back()->with([
+
+            'success' => 'City Deleted'
+        ]);
     }
 }

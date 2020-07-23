@@ -19,6 +19,12 @@
                    </ul>
                     @endif
                     
+
+                    @if (session('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{session('success')}}
+                      </div>
+                    @endif
                     <form action="{{route('bank.store')}}" method="POST">
                         {{csrf_field()}}
                         <div class="form-group">
